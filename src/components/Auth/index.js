@@ -7,7 +7,7 @@ class Authentication extends Component {
             <View style={styles.auth}>
                     <Text>Athentication Component</Text>
                     <TouchableOpacity onPress={() => this.props.navigator.pop()}>
-                        <Text>Go back to Login Component</Text>
+                        <Text>Go back to Menu Component</Text>
                     </TouchableOpacity>
             </View>
         );
