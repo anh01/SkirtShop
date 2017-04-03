@@ -11,11 +11,18 @@ class Main extends Component {
     openControlPanel = () => {
         this.drawer.open();
     }
+
     render() {
+        const menu = (
+            <Menu 
+                close={this.closeControlPanel.bind(this)} 
+                navigator={this.props.navigator}
+            />
+        );
         return (
             <Drawer
                     ref={ref => { this.drawer = ref; }}
-                    content={<Menu close={this.closeControlPanel.bind(this)} />}
+                    content={menu}
                     openDrawerOffset={0.4}
                     panCloseMask={0.2}
             >
