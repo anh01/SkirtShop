@@ -1,8 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Navigator, TouchableOpacity } from 'react-native';
+import { 
+    View, Text, StyleSheet, Navigator, 
+    TouchableOpacity, StatusBar 
+} from 'react-native';
+
+StatusBar.setHidden(true);
 
 const Main = (props) => (
-   <View>
+   <View style={styles.main}>
         <Text>Main Component</Text>
         <TouchableOpacity onPress={() => props.navigator.push({ name: 'AUTH' })}>
             <Text>Go to Login Component</Text>
@@ -11,7 +16,7 @@ const Main = (props) => (
 );
 
 const Authentication = (props) => (
-   <View>
+   <View style={styles.auth}>
         <Text>Athentication Component</Text>
         <TouchableOpacity onPress={() => props.navigator.pop()}>
             <Text>Go back to Login Component</Text>
@@ -27,10 +32,12 @@ const renderScene = (route, navigator) => {
 export default class App extends Component {
     render() {
         return (
-            <Navigator 
-                initialRoute={{ name: 'MAIN' }}
-                renderScene={renderScene}
-            />
+            <View style={styles.container}>
+                <Navigator 
+                    initialRoute={{ name: 'MAIN' }}
+                    renderScene={renderScene}
+                />
+            </View>
         );
     }
 }
@@ -39,6 +46,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'stretch',
+        backgroundColor: '#C0DCF3'
+    },
+    main: {
+        flex: 1,
+        backgroundColor: '#DFF5C9'
+    },
+    auth: {
+        flex: 1,
+        backgroundColor: '#C1C1C1'
     }
 });
