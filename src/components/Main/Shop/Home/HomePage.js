@@ -20,7 +20,7 @@ class HomePage extends Component {
 
 const styles = StyleSheet.create({
     homepage: {
-        backgroundColor: '#5C7300',
+        backgroundColor: '#E2E1DF',
         flex: 1
     }
 });

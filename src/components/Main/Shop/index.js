@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import TabNavigator from 'react-native-tab-navigator';
 import Home from './Home';
 import Cart from './Cart';
 import Contact from './Contact';
 import Search from './Search';
+import TopBar from './TopBar';
+
 import global from '../../global';
 
 export default class Shop extends Component {
@@ -13,6 +15,7 @@ export default class Shop extends Component {
         this.state = { selectedTab: 'home' };
     }
 
+    //component did mount adn goToHome function will be used in another component. 
     componentDidMount() {
         global.goToHome = this.goToHome.bind(this);
     }
@@ -22,15 +25,10 @@ export default class Shop extends Component {
     }
 
     render() {
-        const { topBar, body, container } = styles;
+        const { body, container } = styles;
         return (
             <View style={container}>
-                <View style={topBar}>
-                    <Text>Top bar</Text>
-                    <TouchableOpacity onPress={this.props.open}>
-                        <Text>Open</Text>
-                    </TouchableOpacity>
-                </View>
+                <TopBar open={this.props.open} />
                 <View style={body}>
                     <TabNavigator>
                         <TabNavigator.Item
@@ -72,12 +70,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
-    topBar: {
-        flex: 1,
-        backgroundColor: '#1266C3'
-    },
     body: {
-        flex: 8,
+        flex: 7,
         backgroundColor: '#3F4F67'
     }
 });

@@ -15,7 +15,7 @@ class Home extends Component {
         return (
             <View style={styles.container}>
                 <Navigator 
-                    initialRoute={{ name: 'CART_DETAIL' }}
+                    initialRoute={{ name: 'HOME_PAGE' }}
                     renderScene={renderScene}
                 />
             </View>
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'stretch',
-        backgroundColor: '#C0DCF3'
+        backgroundColor: '#E2E1DF'
     }
 });
 
