@@ -9,6 +9,9 @@ export default class Checkout extends Component {
                 <TouchableOpacity onPress={() => this.props.navigator.pop()}>
                     <Text>Go back cart detail</Text>
                 </TouchableOpacity>
+                <TouchableOpacity onPress={() => this.props.navigator.pop()}>
+                    <Text>Go Home</Text>
+                </TouchableOpacity>
             </View>
         );
     }

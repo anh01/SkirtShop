@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, Navigator } from 'react-native';
+import ProductDetail from '../ProductDetail';
+import SearchPage from './SearchPage';
+
+const renderScene = (route, navigator) => {
+    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} />;
+    return <SearchPage navigator={navigator} />;
+};
 
 class Search extends Component {
     render() {
         return (
-            <View style={styles.cart}>
-                <Text>Search Component</Text>
+            <View style={styles.container}>
+                <Navigator 
+                    initialRoute={{ name: 'SEARCH_PAGE' }}
+                    renderScene={renderScene}
+                />
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    cart: {
+    container: {
         flex: 1,
-        backgroundColor: '#3F5157'
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        backgroundColor: '#39C728'
     }
 });
 
