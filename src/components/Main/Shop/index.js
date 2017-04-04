@@ -113,8 +113,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#3F4F67'
     },
     navIconStyle: {
-        width: 30,
-        height: 30
+        width: 25,
+        height: 25
     },
     selectedStyle: { 
         color: '#2ABB9C', 
