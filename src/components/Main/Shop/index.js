@@ -6,13 +6,14 @@ import Cart from './Cart';
 import Contact from './Contact';
 import Search from './Search';
 import TopBar from './TopBar';
+import PlayGround from './PlayGround';
 
 import global from '../../global';
 
 export default class Shop extends Component {
     constructor(props) {
         super(props);
-        this.state = { selectedTab: 'home' };
+        this.state = { selectedTab: 'play' };
     }
 
     //component did mount adn goToHome function will be used in another component. 
@@ -58,6 +59,13 @@ export default class Shop extends Component {
                             onPress={() => this.setState({ selectedTab: 'contact' })}
                         >
                             <Contact />
+                        </TabNavigator.Item>
+                        <TabNavigator.Item
+                            selected={this.state.selectedTab === 'play'}
+                            title="Play"
+                            onPress={() => this.setState({ selectedTab: 'play' })}
+                        >
+                            <PlayGround />
                         </TabNavigator.Item>
                     </TabNavigator>
                 </View>
