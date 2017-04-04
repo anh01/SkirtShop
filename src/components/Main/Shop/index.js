@@ -9,7 +9,7 @@ import Search from './Search';
 export default class Shop extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = { selectedTab: 'home' };
     }
     render() {
         const { topBar, body, container } = styles;
@@ -24,30 +24,34 @@ export default class Shop extends Component {
                 <View style={body}>
                     <TabNavigator>
                         <TabNavigator.Item
-                        selected={this.state.selectedTab === 'home'}
-                        title="Home"
-                        onPress={() => this.setState({ selectedTab: 'home' })}>
-                        <Home />
+                            selected={this.state.selectedTab === 'home'}
+                            title="Home"
+                            onPress={() => this.setState({ selectedTab: 'home' })}
+                        >
+                            <Home />
                         </TabNavigator.Item>
                         <TabNavigator.Item
-                        selected={this.state.selectedTab === 'cart'}
-                        title="Cart"
-                        onPress={() => this.setState({ selectedTab: 'cart' })}>
-                        <Cart />
+                            selected={this.state.selectedTab === 'cart'}
+                            title="Cart"
+                            onPress={() => this.setState({ selectedTab: 'cart' })}
+                        >
+                            <Cart />
                         </TabNavigator.Item>
                         <TabNavigator.Item
-                        selected={this.state.selectedTab === 'search'}
-                        title="Search"
-                        onPress={() => this.setState({ selectedTab: 'search' })}>
-                        <Search />
+                            selected={this.state.selectedTab === 'search'}
+                            title="Search"
+                            onPress={() => this.setState({ selectedTab: 'search' })}
+                        >
+                            <Search />
                         </TabNavigator.Item>
                         <TabNavigator.Item
-                        selected={this.state.selectedTab === 'contact'}
-                        title="Contact"
-                        onPress={() => this.setState({ selectedTab: 'contact' })}>
-                        <Contact />
+                            selected={this.state.selectedTab === 'contact'}
+                            title="Contact"
+                            onPress={() => this.setState({ selectedTab: 'contact' })}
+                        >
+                            <Contact />
                         </TabNavigator.Item>
-                    </TabNavigator>                
+                    </TabNavigator>
                 </View>
             </View>
         );

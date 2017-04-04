@@ -5,7 +5,7 @@ class Search extends Component {
     render() {
         return (
             <View style={styles.cart}>
-                <Text>Contact Component</Text>
+                <Text>Search Component</Text>
             </View>
         );
     }

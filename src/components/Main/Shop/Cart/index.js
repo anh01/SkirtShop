@@ -1,20 +1,32 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, StyleSheet, Navigator } from 'react-native';
+import CardDetail from './CartDetail';
+import Checkout from './Checkout';
+
+const renderScene = (route, navigator) => {
+    if (route.name === 'CART_DETAIL') return <CardDetail navigator={navigator} />;
+    return <Checkout navigator={navigator} />;
+};
 
 class Cart extends Component {
     render() {
         return (
-            <View style={styles.cart}>
-                <Text>Cart Component</Text>
+            <View style={styles.container}>
+                <Navigator 
+                    initialRoute={{ name: 'CART_DETAIL' }}
+                    renderScene={renderScene}
+                />
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    cart: {
+    container: {
         flex: 1,
-        backgroundColor: '#222224'
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        backgroundColor: '#C0DCF3'
     }
 });
 
