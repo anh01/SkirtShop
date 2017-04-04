@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
     width: width - 20,
     margin: 10,
     padding: 10,
+    paddingTop: 0,
     backgroundColor: '#FFFFFF',
     borderRadius: 2,
     shadowColor: '#292929',
@@ -42,5 +43,7 @@ const styles = StyleSheet.create({
     color: '#A7A7A7',
     fontSize: 20,
     fontWeight: '400',
-  }
+    fontFamily: 'Avenir'
+  }     
+
 });

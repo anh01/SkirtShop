@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
         width: width - 40,
         backgroundColor: '#FFFFFF',
         alignSelf: 'center',
-        paddingLeft: 20
+        paddingLeft: 20,
+        fontFamily: 'Avenir'
     },
     menuIcon: {
         width: 25,

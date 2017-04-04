@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet, TouchableOpacity } from 'react-native';
 import Card from './Card';
+import ListCategory from './ListCategory';
 
 export default class PlayGround extends Component {
     render() {
@@ -9,6 +10,7 @@ export default class PlayGround extends Component {
                 <TouchableOpacity>
                     <Card />
                 </TouchableOpacity>
+                <ListCategory />
             </ScrollView>
         );
     }

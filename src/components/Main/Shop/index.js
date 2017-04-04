@@ -43,7 +43,8 @@ export default class Shop extends Component {
                 <View style={body}>
                     <TabNavigator>
                         <TabNavigator.Item
-                            selectedTitleStyle={{ color: '#2ABB9C' }}
+                            titleStyle={styles.titleStyle}
+                            selectedTitleStyle={styles.selectedStyle}
                             selected={this.state.selectedTab === 'home'}
                             renderIcon={() => <Image style={navIconStyle} source={homeIcon0} />}
                             renderSelectedIcon={() => <Image style={navIconStyle} source={homeIcon} />}
@@ -53,7 +54,8 @@ export default class Shop extends Component {
                             <Home />
                         </TabNavigator.Item>
                         <TabNavigator.Item
-                            selectedTitleStyle={{ color: '#2ABB9C' }}
+                            titleStyle={styles.titleStyle}
+                            selectedTitleStyle={styles.selectedStyle}
                             renderIcon={() => <Image style={navIconStyle} source={cartIcon0} />}
                             renderSelectedIcon={() => <Image style={navIconStyle} source={cartIcon} />}
                             selected={this.state.selectedTab === 'cart'}
@@ -63,7 +65,8 @@ export default class Shop extends Component {
                             <Cart />
                         </TabNavigator.Item>
                         <TabNavigator.Item
-                            selectedTitleStyle={{ color: '#2ABB9C' }}
+                            titleStyle={styles.titleStyle}
+                            selectedTitleStyle={styles.selectedStyle}
                             renderIcon={() => <Image style={navIconStyle} source={searchIcon0} />}
                             renderSelectedIcon={() => <Image style={navIconStyle} source={searchIcon} />}
                             selected={this.state.selectedTab === 'search'}
@@ -73,7 +76,8 @@ export default class Shop extends Component {
                             <Search />
                         </TabNavigator.Item>
                         <TabNavigator.Item
-                            selectedTitleStyle={{ color: '#2ABB9C' }}
+                            titleStyle={styles.titleStyle}
+                            selectedTitleStyle={styles.selectedStyle}
                             renderIcon={() => <Image style={navIconStyle} source={contactIcon0} />}
                             renderSelectedIcon={() => <Image style={navIconStyle} source={contactIcon} />}
                             selected={this.state.selectedTab === 'contact'}
@@ -83,7 +87,8 @@ export default class Shop extends Component {
                             <Contact />
                         </TabNavigator.Item>
                         <TabNavigator.Item
-                            selectedTitleStyle={{ color: '#2ABB9C' }}
+                            titleStyle={styles.titleStyle}
+                            selectedTitleStyle={styles.selectedStyle}
                             renderIcon={() => <Image style={navIconStyle} source={playIcon0} />}
                             renderSelectedIcon={() => <Image style={navIconStyle} source={playIcon} />}
                             selected={this.state.selectedTab === 'play'}
@@ -110,5 +115,13 @@ const styles = StyleSheet.create({
     navIconStyle: {
         width: 30,
         height: 30
+    },
+    selectedStyle: { 
+        color: '#2ABB9C', 
+        fontWeight: 'bold',
+        fontFamily: 'Avenir' 
+    },
+    titleStyle: {
+        fontFamily: 'Avenir' 
     }
 });
