@@ -1,28 +1,41 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { 
+    ScrollView, StyleSheet, TouchableOpacity 
+} from 'react-native';
+import Card from './Card';
+import ListCategory from './ListCategory';
+import ListProduct from './ListProduct';
 
-class HomePage extends Component {
+export default class HomePage extends Component {
     render() {
-        const { navigator } = this.props;
+        const { homepage } = styles;
         return (
-            <View style={styles.homepage}>
-                <Text>Home page</Text>
-                <TouchableOpacity onPress={() => navigator.push({ name: 'PRODUCT_DETAIL' })}>
-                    <Text>See product detail</Text>
+            <ScrollView style={homepage}>
+                <TouchableOpacity>
+                    <Card />
                 </TouchableOpacity>
-                <TouchableOpacity onPress={() => navigator.push({ name: 'LIST_PRODUCT' })}>
-                    <Text>See List products</Text>
-                </TouchableOpacity>
-            </View>
+                <ListCategory />
+                <ListProduct />
+            </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
     homepage: {
-        backgroundColor: '#E2E1DF',
+        backgroundColor: '#E3E2E0',
         flex: 1
     }
 });
 
-export default HomePage;
+/*
+<View style={styles.homepage}>
+    <Text>Home page</Text>
+    <TouchableOpacity onPress={() => navigator.push({ name: 'PRODUCT_DETAIL' })}>
+        <Text>See product detail</Text>
+    </TouchableOpacity>
+    <TouchableOpacity onPress={() => navigator.push({ name: 'LIST_PRODUCT' })}>
+        <Text>See List products</Text>
+    </TouchableOpacity>
+</View>
+*/
