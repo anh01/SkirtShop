@@ -5,12 +5,22 @@ import Home from './Home';
 import Cart from './Cart';
 import Contact from './Contact';
 import Search from './Search';
+import global from '../../global';
 
 export default class Shop extends Component {
     constructor(props) {
         super(props);
         this.state = { selectedTab: 'home' };
     }
+
+    componentDidMount() {
+        global.goToHome = this.goToHome.bind(this);
+    }
+
+    goToHome() {
+        this.setState({ ...this.state, selectedTab: 'home' });
+    }
+
     render() {
         const { topBar, body, container } = styles;
         return (
