@@ -9,12 +9,6 @@ export default class PlayGround extends Component {
                 <TouchableOpacity>
                     <Card />
                 </TouchableOpacity>
-                <TouchableOpacity>
-                    <Card />
-                </TouchableOpacity>
-                <TouchableOpacity>
-                    <Card />
-                </TouchableOpacity>
             </ScrollView>
         );
     }
