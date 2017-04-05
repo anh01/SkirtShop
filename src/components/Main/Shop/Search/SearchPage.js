@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import { ScrollView, StyleSheet } from 'react-native';
 import SearchPageItem from './SearchPageItem';
-import sp5 from '../../../../media/temp/sp5.jpeg';
 
 //navigator.push({ name: 'PRODUCT_DETAIL' })
 
 class SearchPage extends Component {
     render() {
+        const { navigator } = this.props;
         return (
             <ScrollView style={styles.wrapper}>
-                <SearchPageItem />
-                <SearchPageItem />
-                <SearchPageItem />
-                <SearchPageItem />
+                <SearchPageItem navigator={navigator} />
+                <SearchPageItem navigator={navigator} />
+                <SearchPageItem navigator={navigator} />
+                <SearchPageItem navigator={navigator} />
             </ScrollView>
         );
     }

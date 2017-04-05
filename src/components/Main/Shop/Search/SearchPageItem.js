@@ -21,9 +21,12 @@ class SearchPageItem extends Component {
                     <Text style={txtName}>Wool Blend Coat</Text>
                     <Text style={txtPrice}>460$</Text>
                     <Text style={txtMaterial}>Material Nylon</Text>
-                    <Text style={txtColor}>Color Black</Text>
+                    <View style={{ flexDirection: 'row' }} >
+                        <Text style={txtColor}>Color Black</Text>
+                        <View style={{ height: 15, width: 15, backgroundColor: 'green', borderRadius: 15, marginLeft: 10 }} />
+                    </View>
                     <TouchableOpacity style={showDetailContainer} onPress={() => this.gotoDetail(10)}>
-                        <Text style={txtShowDetail}>SHOW DETAIL</Text>
+                        <Text style={txtShowDetail}>SHOW DETAILS</Text>
                     </TouchableOpacity>
                 </View>
             </View>

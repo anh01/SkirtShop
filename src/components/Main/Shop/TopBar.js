@@ -21,7 +21,7 @@ export default class TopBar extends Component {
                     />
                 </TouchableOpacity>
                 <View style={styles.textContainer}>
-                    <Text style={styles.textLogo}>Khoa Pham</Text>
+                    <Text style={styles.textLogo}>Wearing a Dress</Text>
                 </View>
                 <Image 
                     source={logo}
@@ -50,7 +50,8 @@ const styles = StyleSheet.create({
     rowOne: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingBottom: 5
+        paddingBottom: 5,
+        paddingHorizontal: 10
     },
     input: {
         height: 30,
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     },
     textLogo: {
         color: '#FFFFFF',
-        fontSize: 15,
-        fontWeight: 'bold'
+        fontSize: 20,
+        fontFamily: 'Avenir'
     }
 });
