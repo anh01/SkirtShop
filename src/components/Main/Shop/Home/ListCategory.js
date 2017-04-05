@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, Image, Dimensions, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, Dimensions } from 'react-native';
 import Swiper from 'react-native-swiper';
+import CategoryItem from './CategoryItem';
 
 const { width } = Dimensions.get('window');
 const midiIcon = require('../../../../media/temp/midi.jpg');
@@ -11,52 +12,24 @@ const miniIcon = require('../../../../media/temp/mini.jpg');
 const partyIcon = require('../../../../media/temp/party.jpg');
 
 export default class ListCategory extends Component {
-  goToListProduct(idList) {
-    //This navigator is start ad ./Home/index.js
-    const { navigator } = this.props;
-    navigator.push({ name: 'LIST_PRODUCT', idList });
-  }
   render() {
+    const { wrapper, title, body } = styles;
+    const { navigator } = this.props;
     return (
-      <View style={styles.wrapper}>
-        <View style={styles.header}>
-          <Text style={styles.title}>LIST OF CATEGORY</Text>
-        </View>
-        <View style={styles.body}>
+      <View style={wrapper}>
+          <Text style={title}>LIST OF CATEGORY</Text>
+        <View style={body}>
           <Swiper
             height={width / 2.5}
             width={width - 40}
           >
-            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(0)}>
-              <Image style={styles.image} source={midiIcon}>
-                <Text style={styles.textStyle}>Midi Dress</Text>
-              </Image>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(1)}>
-              <Image style={styles.image} source={littleIcon}>
-                <Text style={styles.textStyle}>Little Dress</Text>
-              </Image>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(2)}>
-              <Image style={styles.image} source={fitIcon}>
-                <Text style={styles.textStyle}>Fit Dress</Text>
-              </Image>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(3)}>
-              <Image style={styles.image} source={miniIcon}>
-                <Text style={styles.textStyle}>Mini Dress</Text>
-              </Image>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(4)}>
-              <Image style={styles.image} source={partyIcon}>
-                <Text style={styles.textStyle}>Party Dress</Text>
-              </Image>
-            </TouchableOpacity>
-            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(5)}>
-              <Image style={styles.image} source={maxiIcon}>
-                <Text style={styles.textStyle}>Maxi Dress</Text>
-              </Image>
-            </TouchableOpacity>
+            <CategoryItem category={{ name: 'Midi Dress', id: 0, imageSource: midiIcon }} navigator={navigator} />
+            <CategoryItem category={{ name: 'Little Dress', id: 0, imageSource: littleIcon }} navigator={navigator} />
+            <CategoryItem category={{ name: 'Fit Dress', id: 0, imageSource: fitIcon }} navigator={navigator} />
+            <CategoryItem category={{ name: 'Mini Dress', id: 0, imageSource: miniIcon }} navigator={navigator} />
+            <CategoryItem category={{ name: 'Party Dress', id: 0, imageSource: partyIcon }} navigator={navigator} />
+            <CategoryItem category={{ name: 'Maxi Dress', id: 0, imageSource: maxiIcon }} navigator={navigator} />
+            
           </Swiper>
         </View>
       </View>
