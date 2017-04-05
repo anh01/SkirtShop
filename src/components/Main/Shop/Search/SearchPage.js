@@ -1,23 +1,26 @@
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { ScrollView, StyleSheet } from 'react-native';
+import SearchPageItem from './SearchPageItem';
+import sp5 from '../../../../media/temp/sp5.jpeg';
+
+//navigator.push({ name: 'PRODUCT_DETAIL' })
 
 class SearchPage extends Component {
     render() {
-        const { navigator } = this.props;
         return (
-            <View style={styles.homepage}>
-                <Text>Search page</Text>
-                <TouchableOpacity onPress={() => navigator.push({ name: 'PRODUCT_DETAIL' })}>
-                    <Text>See product detail</Text>
-                </TouchableOpacity>
-            </View>
+            <ScrollView style={styles.wrapper}>
+                <SearchPageItem />
+                <SearchPageItem />
+                <SearchPageItem />
+                <SearchPageItem />
+            </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
-    homepage: {
-        backgroundColor: '#B9D9F1',
+    wrapper: {
+        backgroundColor: '#F6F6F6',
         flex: 1
     }
 });
