@@ -30,6 +30,7 @@ export default class TopBar extends Component {
             </View>
             <View style={{ alignItems: 'stretch', justifyContent: 'center' }}>
                 <TextInput 
+                    underlineColorAndroid="transparent"
                     style={styles.input} 
                     placeholder='What do you want to buy?'
                 />
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
     rowOne: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        paddingBottom: 10
+        paddingBottom: 5
     },
     input: {
         height: 30,
@@ -57,7 +58,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         alignSelf: 'center',
         paddingLeft: 20,
-        fontFamily: 'Avenir'
+        fontFamily: 'Avenir',
     },
     menuIcon: {
         width: 25,

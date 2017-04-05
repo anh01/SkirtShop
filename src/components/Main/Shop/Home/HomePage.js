@@ -4,18 +4,19 @@ import {
 } from 'react-native';
 import Card from './Card';
 import ListCategory from './ListCategory';
-import ListProduct from './ListProduct';
+import ListProductHome from './ListProductHome';
 
 export default class HomePage extends Component {
     render() {
         const { homepage } = styles;
+        const { navigator } = this.props;
         return (
             <ScrollView style={homepage}>
                 <TouchableOpacity>
                     <Card />
                 </TouchableOpacity>
-                <ListCategory />
-                <ListProduct />
+                <ListCategory navigator={navigator} />
+                <ListProductHome navigator={navigator} />
             </ScrollView>
         );
     }

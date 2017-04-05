@@ -10,7 +10,12 @@ const maxiIcon = require('../../../../media/temp/maxi.jpg');
 const miniIcon = require('../../../../media/temp/mini.jpg');
 const partyIcon = require('../../../../media/temp/party.jpg');
 
-export default class Shop extends Component {
+export default class ListCategory extends Component {
+  goToListProduct(idList) {
+    //This navigator is start ad ./Home/index.js
+    const { navigator } = this.props;
+    navigator.push({ name: 'LIST_PRODUCT', idList });
+  }
   render() {
     return (
       <View style={styles.wrapper}>
@@ -19,32 +24,35 @@ export default class Shop extends Component {
         </View>
         <View style={styles.body}>
           <Swiper
-            autoplay
             height={width / 2.5}
             width={width - 40}
-            autoplayTimeout={3}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(0)}>
               <Image style={styles.image} source={midiIcon}>
                 <Text style={styles.textStyle}>Midi Dress</Text>
               </Image>
-            </TouchableOpacity><TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(1)}>
               <Image style={styles.image} source={littleIcon}>
                 <Text style={styles.textStyle}>Little Dress</Text>
               </Image>
-            </TouchableOpacity><TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(2)}>
               <Image style={styles.image} source={fitIcon}>
                 <Text style={styles.textStyle}>Fit Dress</Text>
               </Image>
-            </TouchableOpacity><TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(3)}>
               <Image style={styles.image} source={miniIcon}>
                 <Text style={styles.textStyle}>Mini Dress</Text>
               </Image>
-            </TouchableOpacity><TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(4)}>
               <Image style={styles.image} source={partyIcon}>
                 <Text style={styles.textStyle}>Party Dress</Text>
               </Image>
-            </TouchableOpacity><TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity onPress={() => this.goToListProduct.bind(this)(5)}>
               <Image style={styles.image} source={maxiIcon}>
                 <Text style={styles.textStyle}>Maxi Dress</Text>
               </Image>

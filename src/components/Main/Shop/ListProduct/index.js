@@ -3,10 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 class ListProduct extends Component {
     render() {
-        const { navigator } = this.props;
+        const { navigator, idList } = this.props;
         return (
             <View style={styles.listProduct}>
-                <Text>ListProduct</Text>
+                <Text>ListProduct id = {idList}</Text>
                 <TouchableOpacity onPress={() => navigator.pop()}>
                     <Text>Back to Home</Text>
                 </TouchableOpacity>

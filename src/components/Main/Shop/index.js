@@ -23,7 +23,7 @@ import playIcon0 from '../../../media/appIcon/playground0.png';
 export default class Shop extends Component {
     constructor(props) {
         super(props);
-        this.state = { selectedTab: 'home' };
+        this.state = { selectedTab: 'cart' };
     }
 
     //component did mount adn goToHome function will be used in another component. 
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     },
     body: {
         flex: 7,
-        backgroundColor: '#3F4F67'
+        backgroundColor: 'transparent'
     },
     navIconStyle: {
         width: 25,
