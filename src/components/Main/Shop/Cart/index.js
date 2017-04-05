@@ -6,7 +6,7 @@ import ProductDetail from '../ProductDetail';
 
 const renderScene = (route, navigator) => {
     if (route.name === 'CART_DETAIL') return <CardDetail navigator={navigator} />;
-    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} />;
+    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} idProduct={route.idProduct} />;
     return <Checkout navigator={navigator} />;
 };
 
