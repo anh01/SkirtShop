@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, Dimensions } from 'react-native';
+import { View, Text, StyleSheet, Image, Dimensions } from 'react-native';
 import map from '../../../../media/appIcon/map.png';
 
 import phoneIcon from '../../../../media/appIcon/phone.png';
@@ -24,7 +24,7 @@ class Contact extends Component {
                        <Text style={infoText}>90 Le Thi Rieng/ Ben Thanh Dist</Text>
                     </View>
                     <View style={rowInfoContainer}>
-                       <Image source={messageIcon} style={imageStyle} />
+                       <Image source={phoneIcon} style={imageStyle} />
                        <Text style={infoText}>(+84) 01694472176</Text>
                     </View>
                     <View style={rowInfoContainer}>

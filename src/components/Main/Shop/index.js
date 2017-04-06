@@ -23,7 +23,7 @@ import playIcon0 from '../../../media/appIcon/playground0.png';
 export default class Shop extends Component {
     constructor(props) {
         super(props);
-        this.state = { selectedTab: 'contact' };
+        this.state = { selectedTab: 'play' };
     }
 
     //component did mount adn goToHome function will be used in another component. 
