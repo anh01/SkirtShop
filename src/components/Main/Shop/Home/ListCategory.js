@@ -4,17 +4,11 @@ import Swiper from 'react-native-swiper';
 import CategoryItem from './CategoryItem';
 
 const { width } = Dimensions.get('window');
-const midiIcon = require('../../../../media/temp/midi.jpg');
-const fitIcon = require('../../../../media/temp/fit.jpg');
-const littleIcon = require('../../../../media/temp/little.jpg');
-const maxiIcon = require('../../../../media/temp/maxi.jpg');
-const miniIcon = require('../../../../media/temp/mini.jpg');
-const partyIcon = require('../../../../media/temp/party.jpg');
 
 export default class ListCategory extends Component {
   render() {
     const { wrapper, title, body } = styles;
-    const { navigator } = this.props;
+    const { navigator, data } = this.props;
     return (
       <View style={wrapper}>
           <Text style={title}>LIST OF CATEGORY</Text>
@@ -23,13 +17,7 @@ export default class ListCategory extends Component {
             height={width / 2.5}
             width={width - 40}
           >
-            <CategoryItem category={{ name: 'Midi Dress', id: 0, imageSource: midiIcon }} navigator={navigator} />
-            <CategoryItem category={{ name: 'Little Dress', id: 0, imageSource: littleIcon }} navigator={navigator} />
-            <CategoryItem category={{ name: 'Fit Dress', id: 0, imageSource: fitIcon }} navigator={navigator} />
-            <CategoryItem category={{ name: 'Mini Dress', id: 0, imageSource: miniIcon }} navigator={navigator} />
-            <CategoryItem category={{ name: 'Party Dress', id: 0, imageSource: partyIcon }} navigator={navigator} />
-            <CategoryItem category={{ name: 'Maxi Dress', id: 0, imageSource: maxiIcon }} navigator={navigator} />
-            
+            {data.map(e => <CategoryItem key={e.id} category={e} navigator={navigator} />)}
           </Swiper>
         </View>
       </View>

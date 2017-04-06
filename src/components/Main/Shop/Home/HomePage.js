@@ -1,22 +1,41 @@
 import React, { Component } from 'react';
 import { 
-    ScrollView, StyleSheet, TouchableOpacity 
+    ScrollView, StyleSheet, TouchableOpacity, ActivityIndicator, View 
 } from 'react-native';
 import Card from './Card';
 import ListCategory from './ListCategory';
 import ListProductHome from './ListProductHome';
+import initData from '../../../../api/initData';
 
 export default class HomePage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { downloading: true, listCategory: [] };
+    }
+
+    componentDidMount() {
+        initData()
+        .then(res => {
+            this.setState({ ...this.state, downloading: false, listCategory: res });
+        });
+    }
+
     render() {
         const { homepage } = styles;
         const { navigator } = this.props;
-        return (
-            <ScrollView style={homepage}>
+        const loading = <ActivityIndicator style={{ paddingTop: 300 }} />;
+        const main = (
+            <View>
                 <TouchableOpacity>
                     <Card />
                 </TouchableOpacity>
-                <ListCategory navigator={navigator} />
+                <ListCategory navigator={navigator} data={this.state.listCategory} />
                 <ListProductHome navigator={navigator} />
+            </View>
+        );
+        return (
+            <ScrollView style={homepage}>
+                { this.state.downloading ? loading : main }
             </ScrollView>
         );
     }

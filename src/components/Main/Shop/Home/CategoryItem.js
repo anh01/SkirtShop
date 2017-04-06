@@ -9,10 +9,10 @@ class CategoryItem extends Component {
     }
     render() {
         const { imageStyle, textStyle } = styles;
-        const { imageSource, id, name } = this.props.category;
+        const { image, id, name } = this.props.category;
         return (
             <TouchableOpacity onPress={() => this.goToListProduct(id)}>
-                <Image style={imageStyle} source={imageSource}>
+                <Image style={imageStyle} source={{ uri: `http://localhost:3000/${image}` }}>
                     <Text style={textStyle}>{name}</Text>
                 </Image>
             </TouchableOpacity>
