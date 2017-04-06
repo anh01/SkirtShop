@@ -22,6 +22,7 @@ export default class ProductDetail extends Component {
             textSmoke, textHighlight, textMain, titleContainer,
             descContainer, productImageStyle, descStyle, txtMaterial, txtColor
         } = styles;
+        const { images, name, price, material, color } = this.props.product;
         return (
             <View style={wrapper}>
                 <View style={cardStyle}>
@@ -35,17 +36,15 @@ export default class ProductDetail extends Component {
                     </View>
                     <View style={imageContainer}>
                         <ScrollView style={{ flexDirection: 'row', padding: 10, height: swiperHeight }} horizontal >
-                            <Image source={sp1} style={productImageStyle} />
-                            <Image source={sp2} style={productImageStyle} />
-                            <Image source={sp3} style={productImageStyle} />
+                            {images.map(e => <Image source={{ uri: `http://localhost:3000/${e}` }} style={productImageStyle} key={e} />)}
                         </ScrollView>
                     </View>
                     <View style={footer}>
                         <View style={titleContainer}>
                             <Text style={textMain}>
-                                <Text style={textBlack}>Wool Este</Text>
+                                <Text style={textBlack}>{name}</Text>
                                 <Text style={textHighlight}> / </Text>
-                                <Text style={textSmoke}>460$</Text>
+                                <Text style={textSmoke}>{price}$</Text>
                             </Text>
                         </View>
                         <View style={descContainer}>
@@ -53,10 +52,10 @@ export default class ProductDetail extends Component {
                                 This is a man bag. For man who real, 100% man, if you are a man, who love fashion, you must buy it and have it in your collection. If you are not man, You still need to buy it, to prove others, you are a man!
                             </Text>
                             <View style={{ flexDirection: 'row', justifyContent: 'space-between', paddingTop: 15 }}>
-                                <Text style={txtMaterial}>Material Nylon</Text>
+                                <Text style={txtMaterial}>Material {material}</Text>
                                 <View style={{ flexDirection: 'row' }} >
-                                    <Text style={txtColor}>Color Black</Text>
-                                    <View style={{ height: 15, width: 15, backgroundColor: 'green', borderRadius: 15, marginLeft: 10 }} />
+                                    <Text style={txtColor}>Color {color}</Text>
+                                    <View style={{ height: 15, width: 15, backgroundColor: color, borderRadius: 15, marginLeft: 10, borderWidth: 1, borderColor: '#C21C70' }} />
                                 </View>
                             </View>
                         </View>

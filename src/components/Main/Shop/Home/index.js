@@ -5,7 +5,7 @@ import HomePage from './HomePage';
 import ListProduct from '../ListProduct';
 
 const renderScene = (route, navigator) => {
-    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} idProduct={route.idProduct} />;
+    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} product={route.product} />;
     if (route.name === 'LIST_PRODUCT') return <ListProduct navigator={navigator} idList={route.idList} />;
     return <HomePage navigator={navigator} />;
 };

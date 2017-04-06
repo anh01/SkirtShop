@@ -4,19 +4,19 @@ import {
 } from 'react-native';
 
 class ProductHome extends Component {
-    goToProductDetail(idProduct) {
+    goToProductDetail(product) {
         const { navigator } = this.props;
-        navigator.push({ name: 'PRODUCT_DETAIL', idProduct });
+        navigator.push({ name: 'PRODUCT_DETAIL', product });
     }
     render() {
         const { product, productImage, productFooter, productName, productPrice } = styles;
-        const { id, imageSource } = this.props;
+        const { images, name, price } = this.props.product;
         return (
-            <TouchableOpacity style={product} onPress={() => this.goToProductDetail.bind(this)(id)}>
-                <Image style={productImage} source={imageSource} />
+            <TouchableOpacity style={product} onPress={() => this.goToProductDetail(this.props.product)}>
+                <Image style={productImage} source={{ uri: `http://localhost:3000/${images[0]}` }} />
                 <View style={productFooter}>
-                    <Text style={productName}>Giày cao gót 5cm mũi nhọn quai hậu</Text>
-                    <Text style={productPrice}>430,000 VND</Text>
+                    <Text style={productName}>{name.toUpperCase()}</Text>
+                    <Text style={productPrice}>{price}$</Text>
                 </View>
             </TouchableOpacity>
         );

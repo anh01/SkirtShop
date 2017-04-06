@@ -10,13 +10,18 @@ import initData from '../../../../api/initData';
 export default class HomePage extends Component {
     constructor(props) {
         super(props);
-        this.state = { downloading: true, listCategory: [] };
+        this.state = { downloading: true, listCategory: [], listProduct: [] };
     }
 
     componentDidMount() {
         initData()
         .then(res => {
-            this.setState({ ...this.state, downloading: false, listCategory: res });
+            this.setState({ 
+                ...this.state, 
+                downloading: false, 
+                listCategory: res.arrCategory, 
+                listProduct: res.arrProduct 
+            });
         });
     }
 
@@ -30,7 +35,7 @@ export default class HomePage extends Component {
                     <Card />
                 </TouchableOpacity>
                 <ListCategory navigator={navigator} data={this.state.listCategory} />
-                <ListProductHome navigator={navigator} />
+                <ListProductHome navigator={navigator} data={this.state.listProduct} />
             </View>
         );
         return (
