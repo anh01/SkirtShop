@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, Dimensions } from 'react-native';
+import { 
+    View, Text, StyleSheet, Image, 
+    TouchableOpacity, TextInput, Dimensions 
+} from 'react-native';
 import logo from '../../media/appIcon/ic_logo.png';
 
 export default class Authentication extends Component {
@@ -9,11 +12,12 @@ export default class Authentication extends Component {
     }
     render() {
         const {
-            wrapper, main, header, footer, controller, textLogo, controllerLeft, controllerRight, textInput
+            wrapper, main, header, controller, textLogo, controllerLeft, controllerRight, textInput,
+            signInTexStyle, signInContainer
         } = styles;
         const { signIn } = this.state;
-        const styleSignIn = signIn ? { color: '#39C48C', fontWeight: '600' } : { color: '#F2F2F2' };
-        const styleSignUp = !signIn ? { color: '#39C48C', fontWeight: '600' } : { color: '#F2F2F2' };
+        const styleSignIn = signIn ? { color: '#39C48C', fontWeight: '600' } : { color: '#DADADA' };
+        const styleSignUp = !signIn ? { color: '#39C48C', fontWeight: '600' } : { color: '#DADADA' };
         return (
             <View style={wrapper}>
                 <View style={header}>
@@ -30,8 +34,8 @@ export default class Authentication extends Component {
                         style={textInput}
                         placeholder="Enter your Password"
                     />
-                    <TouchableOpacity style={{ borderColor: '#fff', borderRadius: 20, borderWidth: 1, height: 45, alignItems: 'center', justifyContent: 'center', alignSelf: 'stretch' }}>
-                        <Text style={{ color: '#FFF', fontFamily: 'Avenir', fontWeight: '600', paddingHorizontal: 20 }}>SIGN IN NOW</Text>
+                    <TouchableOpacity style={signInContainer}>
+                        <Text style={signInTexStyle}>SIGN IN NOW</Text>
                     </TouchableOpacity>
                     <View style={controller}>
                         <TouchableOpacity style={controllerLeft} onPress={() => this.setState({ ...this.state, signIn: true })}>
@@ -105,6 +109,18 @@ const styles = StyleSheet.create({
         fontFamily: 'Avenir',
         paddingLeft: 20,
         borderRadius: 20
+    },
+    signInTexStyle: {
+        color: '#FFF', fontFamily: 'Avenir', fontWeight: '600', paddingHorizontal: 20
+    },
+    signInContainer: {
+        borderColor: '#fff',
+        borderRadius: 20,
+        borderWidth: 1,
+        height: 45,
+        alignItems: 'center',
+        justifyContent: 'center',
+        alignSelf: 'stretch'
     }
 });
 

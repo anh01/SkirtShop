@@ -10,6 +10,7 @@ class ListProduct extends Component {
         const { navigator } = this.props;
         const { wrapper } = styles;
         return (
+            <View style={{ flex: 1, backgroundColor: '#F6F6F6' }}>
                 <ScrollView style={wrapper}>
                     <View 
                         style={{ height: 50, justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }}
@@ -29,6 +30,7 @@ class ListProduct extends Component {
                     <ListItem navigator={navigator} />
                     <ListItem navigator={navigator} />
                 </ScrollView>
+            </View>
         );
     }
 }
