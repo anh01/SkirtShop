@@ -17,7 +17,7 @@ export default class App extends Component {
         return (
             <View style={styles.container}>
                 <Navigator 
-                    initialRoute={{ name: 'MAIN' }}
+                    initialRoute={{ name: 'AUTH' }}
                     renderScene={renderScene}
                 />
             </View>

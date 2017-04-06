@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, Dimensions, ScrollView } from 'react-native';
+import { 
+    View, Text, StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity 
+} from 'react-native';
 
 const sp1 = require('../../../../media/temp/sp1.jpeg');
 const sp2 = require('../../../../media/temp/sp2.jpeg');
@@ -8,10 +10,14 @@ const back = require('../../../../media/appIcon/back.png');
 const cart = require('../../../../media/appIcon/cartfull.png');
 
 export default class ProductDetail extends Component {
+    goBack() {
+        const { navigator } = this.props;
+        navigator.pop();
+    }
     render() {
         const {
             wrapper, cardStyle, header,
-            footer, heartStyle,
+            footer, backStyle,
             imageContainer, cartStyle, textBlack,
             textSmoke, textHighlight, textMain, titleContainer,
             descContainer, productImageStyle, descStyle, txtMaterial, txtColor
@@ -20,8 +26,12 @@ export default class ProductDetail extends Component {
             <View style={wrapper}>
                 <View style={cardStyle}>
                     <View style={header}>
-                        <Image style={heartStyle} source={back} />
-                        <Image style={cartStyle} source={cart} />
+                        <TouchableOpacity onPress={this.goBack.bind(this)}>
+                            <Image style={backStyle} source={back} />
+                        </TouchableOpacity>
+                        <TouchableOpacity>
+                            <Image style={cartStyle} source={cart} />
+                        </TouchableOpacity>
                     </View>
                     <View style={imageContainer}>
                         <ScrollView style={{ flexDirection: 'row', padding: 10, height: swiperHeight }} horizontal >
@@ -84,7 +94,7 @@ const styles = StyleSheet.create({
         width: 25,
         height: 25
     },
-    heartStyle: {
+    backStyle: {
         width: 25,
         height: 25
     },
