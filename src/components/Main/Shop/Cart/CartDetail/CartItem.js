@@ -21,9 +21,12 @@ class CartItem extends Component {
         return (
             <View style={product}>
                 <Image source={{ uri: `${url}${images[0]}` }} style={productImage} />
-                <View style={mainRight}>
-                    <View>
+                <View style={[mainRight]}>
+                    <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
                         <Text style={txtName}>{name}</Text>
+                        <TouchableOpacity onPress={() => remove(id)}>
+                            <Text style={{ fontFamily: 'Avenir', color: '#969696' }}>X</Text>
+                        </TouchableOpacity>
                     </View>
                     <View>
                         <Text style={txtPrice}>{price}$</Text>
@@ -34,7 +37,7 @@ class CartItem extends Component {
                                 <Text>+</Text>
                             </TouchableOpacity>
                             <Text>{quantity}</Text>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => decr(id)}>
                                 <Text>-</Text>
                             </TouchableOpacity>
                         </View>
