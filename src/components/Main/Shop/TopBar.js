@@ -25,7 +25,8 @@ export default class TopBar extends Component {
             this.props.setArrSearch(res);
             global.goToSearch();
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log(err))
+        .then(() => this.setState({ ...this.state, text: '' }));
     }
 
     render() {
@@ -54,7 +55,7 @@ export default class TopBar extends Component {
                         onFocus={() => {
                             global.goToSearch();
                         }}
-                        onChangeText={(text) => this.setState({ text }, this.getProductBySearch.bind(this))}
+                        onChangeText={(text) => this.setState({ text })}
                         value={this.state.text}
                         onSubmitEditing={this.getProductBySearch.bind(this)}
                     />

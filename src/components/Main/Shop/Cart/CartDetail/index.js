@@ -11,12 +11,19 @@ export default class CardDetail extends Component {
         navigator.push({ name: 'CHECKOUT' });
     }
     showAlert() {
+        const { controller } = this.props;
         Alert.alert(
             'Confirm',
             'Do you want to send this order?',
             [
                 { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-                { text: 'OK', onPress: () => global.goToHome() },
+                { 
+                    text: 'OK', 
+                    onPress: () => {
+                        global.goToHome();
+                        controller.removeAll();
+                    }
+                },
             ],
             { cancelable: false }
         );
@@ -35,7 +42,7 @@ export default class CardDetail extends Component {
                 <ScrollView style={main}>
                     {getListCartItem()}
                 </ScrollView>
-                <TouchableOpacity style={checkoutButton} onPress={this.showAlert}>
+                <TouchableOpacity style={checkoutButton} onPress={this.showAlert.bind(this)}>
                     <Text style={checkoutTitle}>TOTAL {total}$ CHECKOUT NOW</Text>
                 </TouchableOpacity>
             </View>

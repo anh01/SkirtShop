@@ -71,6 +71,13 @@ export default class Shop extends Component {
         });
     }
 
+    removeAll() {
+        this.setState({ 
+            ...this.state, 
+            arrCartItems: []
+        });
+    }
+
     render() {
         const { body, container, navIconStyle } = styles;
         const { arrCartItems } = this.state;
@@ -78,6 +85,7 @@ export default class Shop extends Component {
             incr: this.incrQuantityProduct.bind(this),
             decr: this.decrQuantityProduct.bind(this),
             remove: this.removeProduct.bind(this),
+            removeAll: this.removeAll.bind(this)
         };
         return (
             <View style={container}>
