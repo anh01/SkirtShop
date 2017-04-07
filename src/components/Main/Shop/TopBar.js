@@ -1,43 +1,55 @@
 import React, { Component } from 'react';
-import { 
+import {
     View, StyleSheet, TouchableOpacity,
     Image, Dimensions, TextInput,
-    Text 
+    Text
 } from 'react-native';
+import global from '../../global';
 
 const { width } = Dimensions.get('window');
 const logo = require('../../../media/appIcon/ic_logo.png');
 const menuIcon = require('../../../media/appIcon/ic_menu.png');
 
 export default class TopBar extends Component {
-  render() {
-    return (
-        <View style={styles.mainContainer}>
-            <View style={styles.rowOne}>
-                <TouchableOpacity style={{ flexDirection: 'row' }} onPress={this.props.open}>
-                    <Image 
-                        source={menuIcon} 
-                        style={styles.menuIcon}
+    constructor(props) {
+        super(props);
+        this.state = {
+            text: ''
+        };
+    }
+    render() {
+        return (
+            <View style={styles.mainContainer}>
+                <View style={styles.rowOne}>
+                    <TouchableOpacity style={{ flexDirection: 'row' }} onPress={this.props.open}>
+                        <Image
+                            source={menuIcon}
+                            style={styles.menuIcon}
+                        />
+                    </TouchableOpacity>
+                    <View style={styles.textContainer}>
+                        <Text style={styles.textLogo}>Wearing a Dress</Text>
+                    </View>
+                    <Image
+                        source={logo}
+                        style={styles.logo}
                     />
-                </TouchableOpacity>
-                <View style={styles.textContainer}>
-                    <Text style={styles.textLogo}>Wearing a Dress</Text>
                 </View>
-                <Image 
-                    source={logo}
-                    style={styles.logo}
-                />
+                <View style={{ alignItems: 'stretch', justifyContent: 'center' }}>
+                    <TextInput
+                        underlineColorAndroid="transparent"
+                        style={styles.input}
+                        placeholder='What do you want to buy?'
+                        onFocus={() => {
+                            global.goToSearch();
+                        }}
+                        text={this.state.text}
+                        onChangeText={text => this.setState({ text })}
+                    />
+                </View>
             </View>
-            <View style={{ alignItems: 'stretch', justifyContent: 'center' }}>
-                <TextInput 
-                    underlineColorAndroid="transparent"
-                    style={styles.input} 
-                    placeholder='What do you want to buy?'
-                />
-            </View>
-        </View>
-    );
-  }
+        );
+    }
 }
 
 const styles = StyleSheet.create({

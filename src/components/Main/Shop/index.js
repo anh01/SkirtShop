@@ -29,10 +29,15 @@ export default class Shop extends Component {
     //component did mount adn goToHome function will be used in another component. 
     componentDidMount() {
         global.goToHome = this.goToHome.bind(this);
+        global.goToSearch = this.goToSearch.bind(this);
     }
 
     goToHome() {
         this.setState({ ...this.state, selectedTab: 'home' });
+    }
+
+    goToSearch() {
+        this.setState({ ...this.state, selectedTab: 'search' });
     }
     
     incrQuantityProduct(productId) {

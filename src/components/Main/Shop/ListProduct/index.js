@@ -31,7 +31,7 @@ class ListProduct extends Component {
         getList(3, this.state.page + 1)
         .then(arrProduct => this.setState({ 
             ...this.state, 
-            dataSource: this.state.dataSource.cloneWithRows(this.state.mang.concat(arrProduct)),
+            dataSource: this.state.dataSource.cloneWithRows(arrProduct.concat(this.state.mang)),
             mang: this.state.mang.concat(arrProduct),
             page: this.state.page + 1,
             refreshing: false
