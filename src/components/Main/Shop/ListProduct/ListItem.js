@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, TouchableOpacity, Text, Dimensions, StyleSheet } from 'react-native';
 
-import sp1 from '../../../../media/temp/sp1.jpeg';
+const url = 'http://localhost:3000/';
 
 class SearchPageItem extends Component {
     gotoDetail(idProduct) {
@@ -10,20 +10,21 @@ class SearchPageItem extends Component {
     }
     render() {
         const {
-            product, mainRight, txtMaterial, txtColor,
+            productStyle, mainRight, txtMaterial, txtColor,
             txtName, txtPrice, productImage, 
             txtShowDetail, showDetailContainer
         } = styles;
+        const { name, price, material, color, images } = this.props.product;
         return (
-            <View style={product}>
-                <Image source={sp1} style={productImage} />
+            <View style={productStyle}>
+                <Image source={{ uri: `${url}${images[0]}` }} style={productImage} />
                 <View style={mainRight}>
-                    <Text style={txtName}>Wool Blend Coat</Text>
-                    <Text style={txtPrice}>460$</Text>
-                    <Text style={txtMaterial}>Material Nylon</Text>
+                    <Text style={txtName}>{name}</Text>
+                    <Text style={txtPrice}>{price}$</Text>
+                    <Text style={txtMaterial}>Material {material}</Text>
                     <View style={{ flexDirection: 'row' }} >
-                        <Text style={txtColor}>Color Black</Text>
-                        <View style={{ height: 15, width: 15, backgroundColor: 'green', borderRadius: 15, marginLeft: 10 }} />
+                        <Text style={txtColor}>Color {color}</Text>
+                        <View style={{ height: 15, width: 15, backgroundColor: color, borderRadius: 15, marginLeft: 10 }} />
                     </View>
                     <TouchableOpacity style={showDetailContainer} onPress={() => this.gotoDetail(10)}>
                         <Text style={txtShowDetail}>SHOW DETAILS</Text>
@@ -38,7 +39,7 @@ const { width } = Dimensions.get('window');
 const imageWidth = width / 4;
 const imageHeight = (imageWidth * 452) / 361;
 const styles = StyleSheet.create({
-    product: {
+    productStyle: {
         flexDirection: 'row',
         margin: 10,
         marginTop: 0,
