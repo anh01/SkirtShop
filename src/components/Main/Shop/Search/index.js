@@ -4,7 +4,7 @@ import ProductDetail from '../ProductDetail';
 import SearchPage from './SearchPage';
 
 const renderScene = (route, navigator) => {
-    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} />;
+    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} product={route.product} />;
     return <SearchPage navigator={navigator} />;
 };
 

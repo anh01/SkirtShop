@@ -17,8 +17,6 @@ import searchIcon from '../../../media/appIcon/search.png';
 import searchIcon0 from '../../../media/appIcon/search0.png';
 import contactIcon from '../../../media/appIcon/contact.png';
 import contactIcon0 from '../../../media/appIcon/contact0.png';
-import playIcon from '../../../media/appIcon/playground.png';
-import playIcon0 from '../../../media/appIcon/playground0.png';
 
 export default class Shop extends Component {
     constructor(props) {
