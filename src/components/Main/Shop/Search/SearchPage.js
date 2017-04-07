@@ -18,7 +18,7 @@ class SearchPage extends Component {
         const { navigator } = this.props;
         return (
             <ScrollView style={styles.wrapper}>
-                {this.state.arrSearchItem.map(e => <SearchPageItem navigator={navigator} item={e} key={e.id} />)}
+                {this.state.arrSearchItem.map(e => <SearchPageItem navigator={navigator} product={e} key={e.id} />)}
             </ScrollView>
         );
     }

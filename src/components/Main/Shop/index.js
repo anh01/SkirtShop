@@ -6,7 +6,6 @@ import Cart from './Cart';
 import Contact from './Contact';
 import Search from './Search';
 import TopBar from './TopBar';
-import PlayGround from './PlayGround';
 import global from '../../global';
 
 import homeIcon from '../../../media/appIcon/home.png';
@@ -115,7 +114,7 @@ export default class Shop extends Component {
                             title="Search"
                             onPress={() => this.setState({ ...this.state, selectedTab: 'search' })}
                         >
-                            <Search addProduct={this.addProduct} />
+                            <Search addProduct={this.addProduct.bind(this)} />
                         </TabNavigator.Item>
                         <TabNavigator.Item
                             titleStyle={styles.titleStyle}

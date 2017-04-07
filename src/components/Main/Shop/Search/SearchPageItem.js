@@ -4,9 +4,9 @@ import { View, Image, TouchableOpacity, Text, Dimensions, StyleSheet } from 'rea
 const url = 'http://localhost:3000/';
 
 class SearchPageItem extends Component {
-    gotoDetail(idProduct) {
+    gotoDetail(product) {
         const { navigator } = this.props;
-        navigator.push({ name: 'PRODUCT_DETAIL', idProduct });
+        navigator.push({ name: 'PRODUCT_DETAIL', product });
     }
     render() {
         const {
@@ -14,7 +14,7 @@ class SearchPageItem extends Component {
             txtName, txtPrice, productImage, 
             txtShowDetail, showDetailContainer
         } = styles;
-        const { id, images, price, color, material, name } = this.props.item;
+        const { images, price, color, material, name } = this.props.product;
         return (
             <View style={product}>
                 <Image source={{ uri: `${url}${images[0]}` }} style={productImage} />
@@ -26,7 +26,7 @@ class SearchPageItem extends Component {
                         <Text style={txtColor}>Color {color}</Text>
                         <View style={{ height: 15, width: 15, backgroundColor: color, borderRadius: 15, marginLeft: 10 }} />
                     </View>
-                    <TouchableOpacity style={showDetailContainer} onPress={() => this.gotoDetail(10)}>
+                    <TouchableOpacity style={showDetailContainer} onPress={() => this.gotoDetail(this.props.product)}>
                         <Text style={txtShowDetail}>SHOW DETAILS</Text>
                     </TouchableOpacity>
                 </View>
