@@ -5,6 +5,7 @@ import {
     Text
 } from 'react-native';
 import global from '../../global';
+import searchProduct from '../../../api/searchProduct';
 
 const { width } = Dimensions.get('window');
 const logo = require('../../../media/appIcon/ic_logo.png');
@@ -13,10 +14,20 @@ const menuIcon = require('../../../media/appIcon/ic_menu.png');
 export default class TopBar extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            text: ''
-        };
+        this.state = { text: '' };
     }
+
+    getProductBySearch() {
+        console.log('____________ABCD______');
+        const { text } = this.state;
+        searchProduct(text)
+        .then(res => {
+            this.props.setArrSearch(res);
+            global.goToSearch();
+        })
+        .catch(err => console.log(err));
+    }
+
     render() {
         return (
             <View style={styles.mainContainer}>
@@ -43,8 +54,9 @@ export default class TopBar extends Component {
                         onFocus={() => {
                             global.goToSearch();
                         }}
-                        text={this.state.text}
-                        onChangeText={text => this.setState({ text })}
+                        onChangeText={(text) => this.setState({ text }, this.getProductBySearch.bind(this))}
+                        value={this.state.text}
+                        onSubmitEditing={this.getProductBySearch.bind(this)}
                     />
                 </View>
             </View>

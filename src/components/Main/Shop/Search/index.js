@@ -5,9 +5,9 @@ import SearchPage from './SearchPage';
 
 class Search extends Component {
     renderScene(route, navigator) {
-        const { addProduct } = this.props;
+        const { addProduct, arrSearch } = this.props;
         if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} product={route.product} addProduct={addProduct} />;
-        return <SearchPage navigator={navigator} />;
+        return <SearchPage navigator={navigator} arrSearch={arrSearch} />;
     }
     render() {
         return (

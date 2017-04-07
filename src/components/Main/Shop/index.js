@@ -22,7 +22,8 @@ export default class Shop extends Component {
         super(props);
         this.state = { 
             selectedTab: 'home',
-            arrCartItems: [] 
+            arrCartItems: [],
+            arrSearch: [] 
         };
     }
 
@@ -30,6 +31,10 @@ export default class Shop extends Component {
     componentDidMount() {
         global.goToHome = this.goToHome.bind(this);
         global.goToSearch = this.goToSearch.bind(this);
+    }
+
+    setArrSearch(arrSearch) {
+        this.state = { ...this.state, arrSearch };
     }
 
     goToHome() {
@@ -76,7 +81,7 @@ export default class Shop extends Component {
         };
         return (
             <View style={container}>
-                <TopBar open={this.props.open} />
+                <TopBar open={this.props.open} setArrSearch={this.setArrSearch.bind(this)} />
                 <View style={body}>
                     <TabNavigator>
                         <TabNavigator.Item
@@ -110,7 +115,7 @@ export default class Shop extends Component {
                             title="Search"
                             onPress={() => this.setState({ ...this.state, selectedTab: 'search' })}
                         >
-                            <Search addProduct={this.addProduct.bind(this)} />
+                            <Search addProduct={this.addProduct.bind(this)} arrSearch={this.state.arrSearch} />
                         </TabNavigator.Item>
                         <TabNavigator.Item
                             titleStyle={styles.titleStyle}
