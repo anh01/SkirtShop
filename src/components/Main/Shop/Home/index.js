@@ -4,19 +4,19 @@ import ProductDetail from '../ProductDetail';
 import HomePage from './HomePage';
 import ListProduct from '../ListProduct';
 
-const renderScene = (route, navigator) => {
-    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} product={route.product} />;
-    if (route.name === 'LIST_PRODUCT') return <ListProduct navigator={navigator} idList={route.idList} />;
-    return <HomePage navigator={navigator} />;
-};
-
 class Home extends Component {
+    renderScene(route, navigator) {
+        const { addProduct } = this.props;
+        if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} product={route.product} addProduct={addProduct} />;
+        if (route.name === 'LIST_PRODUCT') return <ListProduct navigator={navigator} idList={route.idList} addProduct={addProduct} />;
+        return <HomePage navigator={navigator} />;
+    };
     render() {
         return (
             <View style={styles.container}>
-                <Navigator 
+                <Navigator
                     initialRoute={{ name: 'HOME_PAGE' }}
-                    renderScene={renderScene}
+                    renderScene={this.renderScene.bind(this)}
                 />
             </View>
         );

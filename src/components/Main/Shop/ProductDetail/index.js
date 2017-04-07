@@ -22,6 +22,7 @@ export default class ProductDetail extends Component {
             descContainer, productImageStyle, descStyle, txtMaterial, txtColor
         } = styles;
         const { images, name, price, material, color } = this.props.product;
+        const { addProduct, product } = this.props;
         return (
             <View style={wrapper}>
                 <View style={cardStyle}>
@@ -29,13 +30,13 @@ export default class ProductDetail extends Component {
                         <TouchableOpacity onPress={this.goBack.bind(this)}>
                             <Image style={backStyle} source={back} />
                         </TouchableOpacity>
-                        <TouchableOpacity>
+                        <TouchableOpacity onPress={() => addProduct(product)}>
                             <Image style={cartStyle} source={cart} />
                         </TouchableOpacity>
                     </View>
                     <View style={imageContainer}>
                         <ScrollView style={{ flexDirection: 'row', padding: 10, height: swiperHeight }} horizontal >
-                            {images.map(e => <Image source={{ uri: `url${e}` }} style={productImageStyle} key={e} />)}
+                            {images.map(e => <Image source={{ uri: `${url}${e}` }} style={productImageStyle} key={e} />)}
                         </ScrollView>
                     </View>
                     <View style={footer}>

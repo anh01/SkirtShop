@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, Image, TouchableOpacity, Text, Dimensions, StyleSheet } from 'react-native';
-import { incrQuantity } from '../../../../global';
 
 const url = 'http://localhost:3000/';
 

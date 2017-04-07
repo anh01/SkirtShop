@@ -66,13 +66,20 @@ export default class Shop extends Component {
         });
     }
 
+    addProduct(product) {
+        this.setState({ 
+            ...this.state, 
+            arrCartItems: [...this.state.arrCartItems, { product, quantity: 1 }]
+        });
+    }
+
     render() {
         const { body, container, navIconStyle } = styles;
         const { arrCartItems } = this.state;
         const controller = { 
             incr: this.incrQuantityProduct.bind(this),
             decr: this.decrQuantityProduct.bind(this),
-            remove: this.removeProduct.bind(this)
+            remove: this.removeProduct.bind(this),
         };
         return (
             <View style={container}>
@@ -88,7 +95,7 @@ export default class Shop extends Component {
                             title="Home"
                             onPress={() => this.setState({ ...this.state, selectedTab: 'home' })}
                         >
-                            <Home />
+                            <Home addProduct={this.addProduct.bind(this)} />
                         </TabNavigator.Item>
                         <TabNavigator.Item
                             titleStyle={styles.titleStyle}
@@ -110,7 +117,7 @@ export default class Shop extends Component {
                             title="Search"
                             onPress={() => this.setState({ ...this.state, selectedTab: 'search' })}
                         >
-                            <Search />
+                            <Search addProduct={this.addProduct} />
                         </TabNavigator.Item>
                         <TabNavigator.Item
                             titleStyle={styles.titleStyle}
@@ -122,17 +129,6 @@ export default class Shop extends Component {
                             onPress={() => this.setState({ ...this.state, selectedTab: 'contact' })}
                         >
                             <Contact />
-                        </TabNavigator.Item>
-                        <TabNavigator.Item
-                            titleStyle={styles.titleStyle}
-                            selectedTitleStyle={styles.selectedStyle}
-                            renderIcon={() => <Image style={navIconStyle} source={playIcon0} />}
-                            renderSelectedIcon={() => <Image style={navIconStyle} source={playIcon} />}
-                            selected={this.state.selectedTab === 'play'}
-                            title="Play"
-                            onPress={() => this.setState({ ...this.state, selectedTab: 'play' })}
-                        >
-                            <PlayGround />
                         </TabNavigator.Item>
                     </TabNavigator>
                 </View>
@@ -162,10 +158,3 @@ const styles = StyleSheet.create({
         fontFamily: 'Avenir' 
     }
 });
-
-class CartItem {
-    constructor(product, quantity) {
-        this.product = product;
-        this.quantity = quantity;
-    }
-}
