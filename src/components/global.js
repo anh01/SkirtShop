@@ -1,1 +1,3 @@
-export default { goToHome: null };
+export default { 
+    goToHome: null
+};

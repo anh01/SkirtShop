@@ -3,9 +3,8 @@ import {
     View, Text, StyleSheet, Image, Dimensions, ScrollView, TouchableOpacity 
 } from 'react-native';
 
-const sp1 = require('../../../../media/temp/sp1.jpeg');
-const sp2 = require('../../../../media/temp/sp2.jpeg');
-const sp3 = require('../../../../media/temp/sp3.jpeg');
+
+const url = 'http://localhost:3000/';
 const back = require('../../../../media/appIcon/back.png');
 const cart = require('../../../../media/appIcon/cartfull.png');
 
@@ -36,7 +35,7 @@ export default class ProductDetail extends Component {
                     </View>
                     <View style={imageContainer}>
                         <ScrollView style={{ flexDirection: 'row', padding: 10, height: swiperHeight }} horizontal >
-                            {images.map(e => <Image source={{ uri: `http://localhost:3000/${e}` }} style={productImageStyle} key={e} />)}
+                            {images.map(e => <Image source={{ uri: `url${e}` }} style={productImageStyle} key={e} />)}
                         </ScrollView>
                     </View>
                     <View style={footer}>

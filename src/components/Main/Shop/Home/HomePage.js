@@ -10,7 +10,11 @@ import initData from '../../../../api/initData';
 export default class HomePage extends Component {
     constructor(props) {
         super(props);
-        this.state = { downloading: true, listCategory: [], listProduct: [] };
+        this.state = { 
+            downloading: true, 
+            listCategory: [], 
+            listProduct: [] 
+        };
     }
 
     componentDidMount() {

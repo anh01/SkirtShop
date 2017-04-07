@@ -4,19 +4,21 @@ import CardDetail from './CartDetail';
 import Checkout from './Checkout';
 import ProductDetail from '../ProductDetail';
 
-const renderScene = (route, navigator) => {
-    if (route.name === 'CART_DETAIL') return <CardDetail navigator={navigator} />;
-    if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} idProduct={route.idProduct} />;
-    return <Checkout navigator={navigator} />;
-};
+
 
 class Cart extends Component {
+    renderScene(route, navigator) {
+        const { data, controller } = this.props;
+        if (route.name === 'CART_DETAIL') return <CardDetail navigator={navigator} data={data} controller={controller} />;
+        if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} idProduct={route.idProduct} />;
+        return <Checkout navigator={navigator} />;
+    }
     render() {
         return (
             <View style={styles.container}>
-                <Navigator 
+                <Navigator
                     initialRoute={{ name: 'CART_DETAIL' }}
-                    renderScene={renderScene}
+                    renderScene={this.renderScene.bind(this)}
                 />
             </View>
         );

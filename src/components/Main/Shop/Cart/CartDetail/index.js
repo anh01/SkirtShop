@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {
-    View, Text, TouchableOpacity, ScrollView, StyleSheet, Dimensions, Image
+    View, Text, TouchableOpacity, ScrollView, StyleSheet, Dimensions
 } from 'react-native';
 import CartItem from './CartItem';
 
@@ -14,16 +14,17 @@ export default class CardDetail extends Component {
         //navigator.push({ name: 'PRODUCT_DETAIL' })
         //navigator.push({ name: 'CHECKOUT' })
         const { wrapper, main, checkoutButton, checkoutTitle } = styles;
-        const { navigator } = this.props;
+        const { navigator, data, controller } = this.props;
+        const getListCartItem = () => data.map(item => <CartItem navigator={navigator} key={item.product.name} item={item} controller={controller} />);
+        const totalArray = data.map(item => item.product.price * item.quantity);
+        const total = totalArray.reduce((a, b) => a + b, 0);
         return (
             <View style={wrapper}>
                 <ScrollView style={main}>
-                    <CartItem navigator={navigator} />
-                    <CartItem navigator={navigator} />
-                    <CartItem navigator={navigator} />
+                    {getListCartItem()}
                 </ScrollView>
                 <TouchableOpacity style={checkoutButton} onPress={this.gotoCheckout.bind(this)}>
-                    <Text style={checkoutTitle}>TOTAL 1.000.000 VND CHECKOUT NOW</Text>
+                    <Text style={checkoutTitle}>TOTAL {total}$ CHECKOUT NOW</Text>
                 </TouchableOpacity>
             </View>
         );

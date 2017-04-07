@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { View, Image, TouchableOpacity, Text, Dimensions, StyleSheet } from 'react-native';
+import { incrQuantity } from '../../../../global';
 
-import sp1 from '../../../../../media/temp/sp1.jpeg';
+const url = 'http://localhost:3000/';
 
 class CartItem extends Component {
     gotoDetail(idProduct) {
@@ -14,22 +15,25 @@ class CartItem extends Component {
             txtName, txtPrice, productImage, numberOfProduct, 
             txtShowDetail, showDetailContainer
         } = styles;
+        const { quantity } = this.props.item;
+        const { name, price, images, id } = this.props.item.product;
+        const { incr, decr, remove } = this.props.controller;
         return (
             <View style={product}>
-                <Image source={sp1} style={productImage} />
+                <Image source={{ uri: `${url}${images[0]}` }} style={productImage} />
                 <View style={mainRight}>
                     <View>
-                        <Text style={txtName}>Wool Blend Coat</Text>
+                        <Text style={txtName}>{name}</Text>
                     </View>
                     <View>
-                        <Text style={txtPrice}>460.000 VND</Text>
+                        <Text style={txtPrice}>{price}$</Text>
                     </View>
                     <View style={productController}>
                         <View style={numberOfProduct}>
-                            <TouchableOpacity>
+                            <TouchableOpacity onPress={() => incr(id)}>
                                 <Text>+</Text>
                             </TouchableOpacity>
-                            <Text>1</Text>
+                            <Text>{quantity}</Text>
                             <TouchableOpacity>
                                 <Text>-</Text>
                             </TouchableOpacity>
