@@ -10,7 +10,7 @@ class Home extends Component {
         if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} product={route.product} addProduct={addProduct} />;
         if (route.name === 'LIST_PRODUCT') return <ListProduct navigator={navigator} idList={route.idList} addProduct={addProduct} />;
         return <HomePage navigator={navigator} />;
-    };
+    }
     render() {
         return (
             <View style={styles.container}>

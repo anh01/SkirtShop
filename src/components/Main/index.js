@@ -24,7 +24,7 @@ class Main extends Component {
                     ref={ref => { this.drawer = ref; }}
                     content={menu}
                     openDrawerOffset={0.4}
-                    panCloseMask={0.2}
+                    tapToClose
             >
                 <Shop open={this.openControlPanel.bind(this)} />
             </Drawer>

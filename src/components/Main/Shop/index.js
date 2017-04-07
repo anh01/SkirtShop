@@ -22,16 +22,7 @@ export default class Shop extends Component {
         super(props);
         this.state = { 
             selectedTab: 'home',
-            arrCartItems: [
-                { 
-                    product: { id: 0, name: 'Wool Blend Coat', price: 460, images: ['sp1.jpeg'] }, 
-                    quantity: 1 
-                },
-                { 
-                    product: { id: 1, name: 'New Fashion', price: 320, images: ['sp2.jpeg'] }, 
-                    quantity: 2 
-                }
-            ] 
+            arrCartItems: [] 
         };
     }
 

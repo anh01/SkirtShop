@@ -1,13 +1,25 @@
 import React, { Component } from 'react';
 import {
-    View, Text, TouchableOpacity, ScrollView, StyleSheet, Dimensions
+    View, Text, TouchableOpacity, ScrollView, StyleSheet, Dimensions, Alert
 } from 'react-native';
 import CartItem from './CartItem';
+import global from '../../../../global';
 
 export default class CardDetail extends Component {
     gotoCheckout() {
         const { navigator } = this.props;
         navigator.push({ name: 'CHECKOUT' });
+    }
+    showAlert() {
+        Alert.alert(
+            'Confirm',
+            'Do you want to send this order?',
+            [
+                { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
+                { text: 'OK', onPress: () => global.goToHome() },
+            ],
+            { cancelable: false }
+        );
     }
     render() {
         //This navigator come from ./Shop/Cart/index.js
@@ -23,7 +35,7 @@ export default class CardDetail extends Component {
                 <ScrollView style={main}>
                     {getListCartItem()}
                 </ScrollView>
-                <TouchableOpacity style={checkoutButton} onPress={this.gotoCheckout.bind(this)}>
+                <TouchableOpacity style={checkoutButton} onPress={this.showAlert}>
                     <Text style={checkoutTitle}>TOTAL {total}$ CHECKOUT NOW</Text>
                 </TouchableOpacity>
             </View>
