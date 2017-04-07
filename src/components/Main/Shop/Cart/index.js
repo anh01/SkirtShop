@@ -10,7 +10,7 @@ class Cart extends Component {
     renderScene(route, navigator) {
         const { data, controller } = this.props;
         if (route.name === 'CART_DETAIL') return <CardDetail navigator={navigator} data={data} controller={controller} />;
-        if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} idProduct={route.idProduct} />;
+        if (route.name === 'PRODUCT_DETAIL') return <ProductDetail navigator={navigator} product={route.product} />;
         return <Checkout navigator={navigator} />;
     }
     render() {
