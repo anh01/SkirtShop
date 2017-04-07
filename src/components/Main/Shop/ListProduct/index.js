@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { ScrollView, StyleSheet, Text, View, Image, TouchableOpacity, ListView, RefreshControl } from 'react-native';
+import { 
+    StyleSheet, Text, View, Image, TouchableOpacity, ListView, RefreshControl 
+} from 'react-native';
 import ListItem from './ListItem';
 import backIcon from '../../../../media/appIcon/backList.png';
 import getList from '../../../../api/getList';
